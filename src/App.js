@@ -4,7 +4,6 @@ import Button from '@mui/material/Button';
 import { CardContent } from '@mui/material';
 import { useState, useEffect } from 'react';
 import "./App.css";
-
 const App = () => {
 
   const [ data, setData ] = useState([]);
