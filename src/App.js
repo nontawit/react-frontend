@@ -1,5 +1,9 @@
 import axios from 'axios';
+import Card from '@mui/material/Card';
+import Button from '@mui/material/Button';
+import { CardContent } from '@mui/material';
 import { useState, useEffect } from 'react';
+import "./App.css";
 
 const App = () => {
 
@@ -15,19 +19,20 @@ const App = () => {
   if(!data){
     return <p>Loading...</p>
   }
-
   return (
-    <div>
-      <ul>
-        {data.map((val, idx) => (
-          <li key={idx}>
-            ชื่อลูกค้า: {val.cus_name} <br/>
-            ที่อยู่: {val.cus_address} <br/>
-            เบอร์โทร: {val.cus_tel} <br/>
-            จำนวน: {val.cus_unit} <br/>
-          </li>
+    <div className='container'>
+        {data.map((order, idx) => (
+          <Card key={idx} className='card'>
+            <CardContent className='cardContent'>
+              <h2>{order.cus_name}</h2>
+              ที่อยู่: {order.cus_address} <br/>
+              เบอร์โทร: {order.cus_tel} <br/>
+              จำนวน: {order.cus_unit} <br/>
+            </CardContent>
+            <Button variant="outlined">เสร็จสิ้น</Button>
+          </Card>
         ))}
-      </ul>
+        
     </div>
   )
 }
